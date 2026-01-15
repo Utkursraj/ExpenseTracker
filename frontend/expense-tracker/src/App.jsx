@@ -10,7 +10,7 @@ import SignUp from './pages/Auth/SignUp';
 import Home from '../src/pages/Dashboard/Home';
 import Income from '../src/pages/Dashboard/Income';
 import Expense from '../src/pages/Dashboard/Expense';
-import UserProvider from './context/userContext';
+import UserProvider from './context/UserContext';
 import {Toaster} from "react-hot-toast";
 
 
