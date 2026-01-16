@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import DashboardLayout from "../../components/layouts/DashboardLayout";
 import { useUserAuth } from "../../hooks/useUserAuth";
 import { API_PATHS } from "../../utils/apiPaths";
-import axiosInstance from '../../utils/axiosInstance'; 
+import axiosInstance from '../../utils/apiClient'; 
 import { addThousandsSeparator } from '../../utils/helper';
 
 import { LuHandCoins, LuWalletMinimal } from "react-icons/lu";
