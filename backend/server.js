@@ -2,37 +2,36 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const path = require("path");
-const { connect } = require("http2");
-const connectDB = require("./config/db")
+const connectDB = require("./config/db");
+
+// 1. IMPORT ROUTES
 const authRoutes = require("./routes/authRoutes");
 const incomeRoutes = require("./routes/incomeRoutes");
 const expenseRoutes = require("./routes/expenseRoutes");
+const dashboardRoutes = require("./routes/dashboardRoutes"); 
 
 const app = express();
 
-//Middleware to handle Cors
+// Middleware to handle Cors
 app.use(
     cors({
-        origin:process.env.CLIENT_URL || "*",
-        methods:["GET","POST","PUT","DELETE"],
-        allowedHeaders:["Content-Type","Authorization"],
+        origin: process.env.CLIENT_URL || "*",
+        methods: ["GET", "POST", "PUT", "DELETE"],
+        allowedHeaders: ["Content-Type", "Authorization"],
     })
 );
-
 
 app.use(express.json());
 
 connectDB();
 
-app.use("/api/v1/auth",authRoutes);
-app.use("/api/v1/income",incomeRoutes);
-app.use("/api/v1/expense",expenseRoutes);
+// 2. USE ROUTES
+app.use("/api/v1/auth", authRoutes);
+app.use("/api/v1/income", incomeRoutes);
+app.use("/api/v1/expense", expenseRoutes);
+app.use("/api/v1/dashboard", dashboardRoutes); 
 
-
-
-//server uploads folder
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
-
 const PORT = process.env.PORT || 8000;
-app.listen(PORT,()=> console.log(`Server running on the port ${PORT}`));
+app.listen(PORT, () => console.log(`Server running on the port ${PORT}`));
