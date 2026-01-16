@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'; 
 import DashboardLayout from '../../components/layouts/DashboardLayout';
 import IncomeOverview from '../../components/Income/IncomeOverview';
-import axiosInstance from '../../utils/axiosInstance'; 
+import axiosInstance from '../../utils/apiClient'; 
 import { useUserAuth } from '../../hooks/useUserAuth'; 
 import { API_PATHS } from '../../utils/apiPaths'; 
 import { toast } from 'react-hot-toast'; 
